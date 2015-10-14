@@ -17,14 +17,14 @@
         <li class="active"><a href="#">My Cabinet <span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jordan <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Jordan 1 - 8</a></li>
-            <li><a href="#">Jordan 9 - 18</a></li>
-            <li><a href="#">Jordan 19 - Present</a></li>
-            <li><a href="#">Future</a></li>
-            <li><a href="#">Other Jordans</a></li>
+          <ul class="dropdown-menu">              <!-- fix the paths-->
+            <li><%= link_to "Jordan 1 - 8", root_path %></li>
+            <li><%= link_to "Jordan 9 - 18", root_path %></li>
+            <li><%= link_to "Jordan 19 - Present", root_path %></li>
+            <li><%= link_to "Future", root_path %></li>
+            <li><%= link_to "Other Jordan", root_path %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Release Date</a></li>
+            <li><%= link_to "Release Date", root_path %></li>
           </ul>
         </li>
       </ul>
@@ -42,12 +42,6 @@
           </ul>
         </li>
 
-        <% if user_signed_in? %>
-          <li><% link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><% link_to "Sign in", new_user_session_path %></li>
-        <% end %>
-
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adidas <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -58,7 +52,13 @@
             <li><a href="#">Other Adidas</a></li>
           </ul>
         </li>
-
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><% link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><% link_to "Sign in", new_user_session_path %></li>
+        <% end %>
       </ul>
      <!-- <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
